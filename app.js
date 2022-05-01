@@ -108,7 +108,7 @@ app.post('/notifications', (req, res)=>{
             break;
         case "merchant_order":
             console.log("MERCHANT ORDER PROCESS");
-            let morder = mercadopago.merchant_orders.findById(query.data.id);
+            let morder = mercadopago.merchant_orders.findById(query.id);
             console.log(morder)
             break;
     }
