@@ -97,19 +97,27 @@ app.get('/payment-success', (req, res) => {
     res.render('payment',req.query);
 })
 
-app.post('/notifications', async (req, res)=>{
+app.post('/notifications', (req, res)=>{
     let query = req.query;
     console.log(query);
     switch(query.type){
         case "payment":
             console.log("PAYMENT PROCESS");
-            let payment = await mercadopago.payment.findById(query.id); 
-            console.log(payment);
+            mercadopago.payment.findById(query.id).then((data)=>{
+                console.log(data);
+            }).catch((error)=>{
+                console.error("OCURRIO UN ERROR");
+                console.error(error);
+            }); 
             break;
         case "merchant_order":
             console.log("MERCHANT ORDER PROCESS");
-            let morder = await mercadopago.merchant_orders.findById(query.id);
-            console.log(morder)
+            mercadopago.merchant_orders.findById(query.id).then((data)=>{
+                console.log(data);
+            }).catch((error)=>{
+                console.error("OCURRIO UN ERROR");
+                console.error(error);
+            }); 
             break;
     }
     return res.status(200);
