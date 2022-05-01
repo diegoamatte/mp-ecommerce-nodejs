@@ -98,7 +98,7 @@ app.get('/payment-success', (req, res) => {
 })
 
 app.post('/notifications', (req, res)=>{
-    console.log(req.body);
+    console.log(req.data);
     return res.status(200);
 });
 
