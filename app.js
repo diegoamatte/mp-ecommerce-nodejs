@@ -67,9 +67,7 @@ app.get('/detail', async function (req, res) {
         },
         notification_url: `${process.env.BASE_URL}/notifications?source_news=webhooks`,
     }
-    mercadopago.configur
     var preference = await mercadopago.preferences.create(preferenceRequest);
-    console.log(preference);
     var response = {
         title: req.query.title,
         quantity: +req.query.unit,
@@ -82,14 +80,20 @@ app.get('/detail', async function (req, res) {
 });
 
 app.get('/payment-failed', (req, res) => {
+    req.query.img_name ="kuba-icon-delete.png";
+    req.query.state = "Pago fallido";
     res.render('payment',req.query);
 })
 
 app.get('/payment-pending', (req, res) => {
+    req.query.img_name ="kuba-icon-question.png";
+    req.query.state = "Pago pendiente";
     res.render('payment',req.query);
 })
 
 app.get('/payment-success', (req, res) => {
+    req.query.img_name ="kuba-icon-ok.png";
+    req.query.state = "Pago aprobado";
     res.render('payment',req.query);
 })
 

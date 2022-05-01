@@ -1,8 +1,21 @@
-<h3>Estado del pago</h3>
-<div>
-    <ul>
-        <li>Metodo de pago : {{payment_id}}</li>
-        <li>Referencia externa : {{external_reference}}</li>
-        <li>ID de pago : {{collection_id}}</li>
-    </ul>
+<div class="container py-4">
+    <div class="card">
+        <div class="text-center p-2">
+            <img src="assets/{{img_name}}" width="80px">
+        </div>
+        <div class="card-body">
+            <h5 class="display-4 text-center">{{ state }}</h5>
+            <div class="p-2">
+                <p class="card-text">Collection ID: {{payment_id}}</p>
+                <p class="card-text">Collection Status: {{collection_status}}</p>
+                <p class="card-text">External Reference: {{external_reference}}</p>
+                <p class="card-text">Site ID: {{site_id}}</p>
+                <p class="card-text">Processing Mode: {{processing_mode}}</p>
+                <p class="card-text">Merchant Account ID: {{merchant_account_id}}</p>
+                <div class="text-center">
+                    <a href="./" class="btn btn-primary">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
