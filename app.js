@@ -98,8 +98,8 @@ app.get('/payment-success', (req, res) => {
 })
 
 app.post('/notifications', (req, res)=>{
-    console.log(req);
-    return res.statusCode(200);
+    console.log(req.body);
+    return res.status(200);
 });
 
 
