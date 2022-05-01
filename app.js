@@ -103,7 +103,7 @@ app.post('/notifications', (req, res)=>{
     switch(query.type){
         case "payment":
             console.log("PAYMENT PROCESS");
-            let payment = mercadopago.payment.findById(query.data.id); 
+            let payment = mercadopago.payment.findById(query.id); 
             console.log(payment);
             break;
         case "merchant_order":
