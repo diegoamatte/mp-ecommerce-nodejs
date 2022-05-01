@@ -2,6 +2,7 @@ require('dotenv').config();
 
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 var mercadopago = require('mercadopago');
 mercadopago.configure({
     access_token: "APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398",
@@ -16,6 +17,8 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 app.use(express.static('assets'));
+app.use(bodyParser.json())
+
 
 app.use('/assets', express.static(__dirname + '/assets'));
 
@@ -98,28 +101,7 @@ app.get('/payment-success', (req, res) => {
 })
 
 app.post('/notifications', (req, res)=>{
-    let query = req.query;
-    console.log(query);
-    switch(query.type){
-        case "payment":
-            console.log("PAYMENT PROCESS");
-            mercadopago.payment.findById(query.data.id).then((data)=>{
-                console.log(data);
-            }).catch((error)=>{
-                console.error("OCURRIO UN ERROR");
-                console.error(error);
-            }); 
-            break;
-        case "merchant_order":
-            console.log("MERCHANT ORDER PROCESS");
-            mercadopago.merchant_orders.findById(query.id).then((data)=>{
-                console.log(data);
-            }).catch((error)=>{
-                console.error("OCURRIO UN ERROR");
-                console.error(error);
-            }); 
-            break;
-    }
+    console.log(req.body);
     return res.status(200);
 });
 
