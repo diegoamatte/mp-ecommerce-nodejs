@@ -68,7 +68,7 @@ app.get('/detail', async function (req, res) {
             pending: `${process.env.BASE_URL}/payment-pending`,
             failure: `${process.env.BASE_URL}/payment-failed`,
         },
-        notification_url: `${process.env.BASE_URL}/notifications`,
+        notification_url: `${process.env.BASE_URL}/notifications?source_news=webhooks`,
     }
     var preference = await mercadopago.preferences.create(preferenceRequest);
     var response = {
