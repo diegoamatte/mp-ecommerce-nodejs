@@ -98,7 +98,7 @@ app.get('/payment-success', (req, res) => {
 })
 
 app.post('/notifications', (req, res)=>{
-    console.log(req)
+    console.log(req.body.data.id);
 });
 
 
