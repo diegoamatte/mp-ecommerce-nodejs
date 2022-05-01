@@ -98,7 +98,18 @@ app.get('/payment-success', (req, res) => {
 })
 
 app.post('/notifications', (req, res)=>{
-    console.log(req.query);
+    let query = req.query;
+    switch(query.type){
+        case "payment":
+            let payment = mercadopago.payment.findById(query.data.id); 
+            console.log(payment);
+            break;
+        case "merchant_order":
+            let morder = mercadopago.merchant_orders.findById(query.data.id);
+            console.log(morder)
+            break;
+    }
+    return res.status(200);
 });
 
 
