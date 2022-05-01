@@ -103,7 +103,7 @@ app.post('/notifications', (req, res)=>{
     switch(query.type){
         case "payment":
             console.log("PAYMENT PROCESS");
-            mercadopago.payment.findById(query.id).then((data)=>{
+            mercadopago.payment.findById(query.data.id).then((data)=>{
                 console.log(data);
             }).catch((error)=>{
                 console.error("OCURRIO UN ERROR");
