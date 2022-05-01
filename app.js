@@ -99,6 +99,7 @@ app.get('/payment-success', (req, res) => {
 
 app.post('/notifications', (req, res)=>{
     let query = req.query;
+    console.log(query);
     switch(query.type){
         case "payment":
             console.log("PAYMENT PROCESS");
