@@ -97,7 +97,7 @@ app.get('/payment-success', (req, res) => {
     res.render('payment',req.query);
 })
 
-app.post('/notifications', (req, res)=>{
+app.post('/notifications', async (req, res)=>{
     let query = req.query;
     console.log(query);
     switch(query.type){
