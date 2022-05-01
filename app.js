@@ -102,8 +102,9 @@ app.get('/payment-success', (req, res) => {
 
 app.post('/notifications', (req, res)=>{
     let notification = req.body;
-    console.log(req.query);
     console.log(notification);
+    let payment = await mercadopago.payment.findById(notification.data.id);
+    console.log(payment);
     return res.sendStatus(200);
 });
 
