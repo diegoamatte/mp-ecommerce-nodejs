@@ -14,7 +14,6 @@ router.get('/', function (req, res) {
 });
 
 router.get('/detail', async function (req, res) {
-    console.log(req.headers.host);
     var preferenceRequest = {
         auto_return: "approved",
         items: [
@@ -49,7 +48,7 @@ router.get('/detail', async function (req, res) {
                 }
             ]
         },
-        external_reference: "mimail@gmail.com",
+        external_reference: "amattediegoomar@gmail.com",
         back_urls: {
             success: `${process.env.BASE_URL}/payment-success`,
             pending: `${process.env.BASE_URL}/payment-pending`,
